@@ -1,0 +1,31 @@
+.detail_start {
+    opacity: 0;
+}
+
+.detail_end {
+    opacity: 1;
+    transition: opacity 0.5s;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: row;
+    margin: 0 101px 0 101px;
+}
+
+.de-info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.de-info>button {
+    width: 100px;
+    height: 50px;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
