@@ -6,6 +6,7 @@ import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 import Main from './components/Main';
 import Detail from './components/Detail';
 import Cart from './components/Cart';
+import Navibar from './components/Navibar';
 import axios from 'axios'
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
 
   return (
     <div className="App">
+      <Navibar></Navibar>
       <Routes>
         <Route path='/' element={<Main shoes={shoes} getData={getData} loading={loading} />} />
         <Route path='/detail/:id' element={<Detail shoes={shoes} />} />

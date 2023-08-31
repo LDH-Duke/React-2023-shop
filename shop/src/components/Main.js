@@ -11,7 +11,7 @@ function Main(props) {
 
     return (
         <div className='Main'>
-            <Navibar />
+            {/* <Navibar /> */}
 
             <div className='main-bg' />
             <div className="container">

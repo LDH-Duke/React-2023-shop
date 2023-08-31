@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { useParams, useLocation, redirect } from 'react-router-dom'
+import { useParams, useLocation, redirect, Link } from 'react-router-dom'
 import styled from 'styled-components'
 import Nav from 'react-bootstrap/Nav';
 import Navibar from './Navibar'
 import './style/Detail.css'
 import DetailInfo from './DetailInfo';
+import { useDispatch } from 'react-redux';
+import { addCart } from '../store/cartSlice';
 
 
 function Detail(props) {
@@ -13,6 +15,8 @@ function Detail(props) {
     const [hide, setHide] = useState(1)
     const [tab, setTab] = useState(0)
     const [fade, setFade] = useState('')
+
+    let dispatch = useDispatch();
 
     useEffect(() => {
         let a = setTimeout(() => { setFade('end') }, 10)
@@ -23,9 +27,18 @@ function Detail(props) {
         }
     }, [])
 
+    const addBucket = () => {
+        let data = {
+            id: item.id,
+            name: item.title,
+            count: 1
+        }
+        dispatch(addCart(data))
+    }
+
     return (
         <div className={'detail_start ' + fade}>
-            <Navibar />
+            {/* <Navibar /> */}
             {
                 hide ? <div id='timebox' style={{ background: 'yellow' }}>
                     <p>2초 후 사라짐</p>
@@ -39,7 +52,8 @@ function Detail(props) {
                     <h4>{item.title}</h4>
                     <span>{item.content}</span><br />
                     <span>{item.price}</span>
-                    <button>구매하기</button>
+                    <button onClick={addBucket}>구매하기</button>
+                    <Link to='/cart'>장바구니</Link>
                 </div>
 
             </div>
